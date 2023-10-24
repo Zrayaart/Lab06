@@ -1,3 +1,4 @@
+# Soraya Sardine
 def menu():
     print('\nMenu\n-------------\n')
     print('1. Encode\n2. Decode\n3. Quit\n')
