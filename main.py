@@ -11,6 +11,13 @@ def encode_password(password):
     return ''.join(str(num) for num in encode_res)
 
 
+def decode_password(password):
+    password = password[:8]
+    decode_res = [int(item) for item in password]
+    decode_res = [(element - 3) % 10 for element in decode_res]
+    return ''.join(str(num) for num in decode_res)
+
+
 def main():
     encode = None
     while True:
@@ -21,9 +28,13 @@ def main():
             encode = encode_password(user_password_encode)
             print('Your password has been encoded and stored!')
         elif user_option == 2:
-            print(f'The encoded password is {encode}, and the original password is .')
-        else:
+            decode = decode_password(encode)
+            print(f'The encoded password is {encode}, and the original password is {decode}.')
+        elif user_option == 3:
             break
+        else:
+            print('Option not valid. Please try Again!')
+            continue
 
 
 if __name__ == '__main__':
