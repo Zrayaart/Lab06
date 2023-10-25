@@ -11,11 +11,24 @@ def encode_password(password):
     return ''.join(str(num) for num in encode_res)
 
 
-def decode_password(password):
-    password = password[:8]
-    decode_res = [int(item) for item in password]
-    decode_res = [(element - 3) % 10 for element in decode_res]
-    return ''.join(str(num) for num in decode_res)
+# def decode_password(password):
+#     password = password[:8]
+#     decode_res = [int(item) for item in password]
+#     decode_res = [(element - 3) % 10 for element in decode_res]
+#     return ''.join(str(num) for num in decode_res)
+
+
+
+
+#My code
+def decode_password(encoded_password):
+    password = ""
+    for digit in encoded_password:
+        shifted_digit = str((int(digit) - 3) % 10)  # shift each digit down by 3 numbers
+        password += shifted_digit
+    return password
+
+
 
 
 def main():
